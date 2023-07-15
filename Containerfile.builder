@@ -1,6 +1,6 @@
 FROM registry.fedoraproject.org/fedora:latest AS builder
 
-ENV UBLUE_ROOT=/app/output
+ARG UBLUE_ROOT=/app/output
 
 WORKDIR /app 
 

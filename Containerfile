@@ -1,6 +1,6 @@
 FROM registry.fedoraproject.org/fedora:latest AS builder
 
-ENV UBLUE_ROOT=/app/output
+ARG UBLUE_ROOT=/app/output
 
 WORKDIR /app 
 
@@ -35,7 +35,7 @@ RUN find ${UBLUE_ROOT}/ublue-os/rpms && \
 
 FROM scratch
 
-ENV UBLUE_ROOT=/app/output
+ARG UBLUE_ROOT=/app/output
 
 # Copy RPMs
 COPY --from=builder ${UBLUE_ROOT}/ublue-os/rpms /rpms
