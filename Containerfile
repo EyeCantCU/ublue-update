@@ -30,6 +30,9 @@ RUN \
         cp "${RPM}" "${UBLUE_ROOT}/ublue-os/rpms/$(rpm -q "${RPM}" --queryformat='%{NAME}.%{ARCH}.rpm')"; \
     done
 
+RUN find ${UBLUE_ROOT}/ublue-os/rpms && \
+    find ${UBLUE_ROOT}/ublue-os/files
+
 FROM scratch
 
 ENV UBLUE_ROOT=/app/output
